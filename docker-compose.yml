@@ -1,0 +1,40 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: kafkarto
+      MYSQL_USER: kafkarto
+      MYSQL_PASSWORD: exsS51i
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    image: kafkarto:latest
+    ports:
+      - 1888:1888
+    depends_on:
+      - mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: dev_pma
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8183:80
+
+volumes:
+  mysql_data:
+    driver: local

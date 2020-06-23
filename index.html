@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>kafkarto</title>
+    <link rel="stylesheet" href=".\css\style.css" />
+    <script src="scripts/geo.js"></script>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+  </head>
+
+  <body onload="getItems()">
+    <header>
+      <div class="logo">
+        <a href="/">
+          <img
+            src="./img/logo.svg"
+            alt="logo"
+            style="max-width: 8rem; padding: 1rem;"
+          />
+        </a>
+      </div>
+      <div
+        style="
+          max-width: 60%;
+          font-size: 1.5rem;
+          word-wrap: break-word;
+          margin: 20px;
+        "
+      >
+        Want to know where to find a cup of coffee that fits your needs? Use
+        Kafkarto to find out everything about pricing and other’s opinions!
+      </div>
+    </header>
+    <main>
+
+	<div class="resultsBox">
+	</div>
+
+      <div class="searchBox">
+        <div>
+			<label for="distance">Search distance, meters:</label>
+			<input type="text" class="distance" id="distance" name="distance" value="1000">
+		</div>
+      </div>
+
+      <div class="searchBox">
+        <div class="textBox"></div>
+        <button class="search" onclick="searchClick()">Search</button>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; width: 85%;">
+        <div class="checks">
+        </div>
+
+        <div class="checks2">
+        </div>
+        
+      </div>
+    </main>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
